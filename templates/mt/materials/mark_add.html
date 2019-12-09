@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {% if country %}
+            <input type="text" name="country_id" value="{{ country.key.id() }}" hidden>
+        {% endif %}
+
+        {% if parent_mark_id %}
+            <input type="text" name="parent_mark_id" value="{{ parent_mark_id }}" hidden>
+            <input type="text" name="parent_category" value="{{ parent_category }}" hidden>
+        {% endif %}
+
+        {% if mark %}
+            <input type="text" name="mark_id" value="{{ mark.key.id() }}" hidden>
+        {% endif %}
+
+        <label>
+            Готово:
+            <input type="checkbox" name="available" {% if mark and mark.available %} checked {% endif %}>
+        </label><br>
+
+        <label>
+            Изображение:
+            <input type="text" name="image" {% if mark %} value="{{ mark.image }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Название:
+            <input type="text" name="name" {% if mark %} value="{{ mark.name }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Описание:
+            <input type="text" name="description" {% if mark %} value="{{ mark.description }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Индекс:
+            <input type="text" name="sort_index" {% if mark %} value="{{ mark.sort_index }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Категория:
+            <input type="text" name="group_title" {% if mark %} value="{{ mark.group_title }}" {% else %} value="{{ default_category }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Начало:
+            <input type="date" name="start" {% if mark %} value="{{ mark.start_str }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Конец:
+            <input type="date" name="end" {% if mark %} value="{{ mark.end_str }}" {% endif %}>
+        </label><br>
+
+        <input type="submit">
+        <a href="{{ back_link }}">Назад</a>
+    </form>
+</body>
+</html>

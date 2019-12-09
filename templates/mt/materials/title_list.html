@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <table style="border-collapse:collapse; width:100%" border="1">
+            <tr>
+                <th>Название</th>
+                <th>Начало</th>
+                <th>Конец</th>
+            </tr>
+            {% for title in titles %}
+                <tr>
+                    <td>
+                        <a href="{{ title.change_url }}">{{ title.name }}</a>
+                    </td>
+                    <td>{{ title.start }}</td>
+                    <td>{{ title.end }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ back_link }}">Назад</a>
+        <a href="{{ add_link }}">Добавить</a>
+    </div>
+</body>
+</html>

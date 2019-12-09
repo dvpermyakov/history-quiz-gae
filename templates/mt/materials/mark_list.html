@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <table style="border-collapse:collapse; width:100%" border="1">
+            <tr>
+                <th>Изображение</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Категория</th>
+                <th>Начало</th>
+                <th>Конец</th>
+                <th>Текст</th>
+                <th>Тест</th>
+                <th>Дополнительно</th>
+                <th>Зависимости</th>
+            </tr>
+            {% for mark in marks %}
+                <tr>
+                    <td>
+                        <img src="{{ mark.image }}" height="150">
+                    </td>
+                    <td {% if mark.available %} bgcolor="#00FF00" {% else %} bgcolor="#FF0000" {% endif %}>
+                        <a href="{{ mark.change_url }}">{{ mark.name }}</a>
+                    </td>
+                    <td>{{ mark.description }}</td>
+                    <td>{{ mark.group_title }}</td>
+                    <td>{{ mark.start }}</td>
+                    <td>{{ mark.end }}</td>
+                    <td>
+                        <a href="{{ '/mt/materials/text/list?mark_id=%s&category=%s&out_category=%s&text_id=%s' % (parent_mark_id, parent_category, category, mark.text.id()) }}">
+                            Текст
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ '/mt/materials/test/list?mark_id=%s&category=%s&out_category=%s&test_id=%s' % (parent_mark_id, parent_category, category, mark.test.id()) }}">
+                            Тест
+                        </a>
+                    </td>
+                    <td>
+                        {% for title, href in mark.extra.iteritems() %}
+                            <a href="{{ href }}" >{{ title }}</a><br>
+                      {% endfor %}
+                    </td>
+                    <td>
+                        {% for dependency in mark.dependencies_obj %}
+                            {{ dependency }}<br>
+                        {% endfor %}
+                        <a href="{{ '/mt/materials/dependency/add?mark_id=%s&category=%s' % (mark.key.id(), category) }}">
+                            Добавить
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ back_link }}">Назад</a>
+        <a href="{{ add_link }}">Добавить</a>
+    </div>
+</body>
+</html>

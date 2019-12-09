@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        <input type="text" name="mark_id" value="{{ mark_id }}" hidden>
+        <input type="text" name="category" value="{{ category }}" hidden>
+        <input type="text" name="question_id" value="{{ question.key.id() }}" hidden>
+
+        <label>
+            Текст:
+            <input type="text" name="text" value="{{ question.text }}" >
+        </label><br>
+
+        <label>
+            Правильный ответ:
+            <input type="text" name="correct" value="{{ question.correct_obj.text }}" >
+        </label><br>
+
+        {% for answer in question.incorrect_obj %}
+            <label>
+                {{loop.index}}:
+                <input type="text" name={{ 'correct_%s' % loop.index0 }} value="{{ answer.text }}" >
+            </label><br>
+        {% endfor %}
+
+        <input type="submit">
+        <a href="{{ add_link }}">Добавить ответ</a>
+        <a href="{{ back_link }}">Назад</a>
+    </form>
+</body>
+</html>

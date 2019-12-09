@@ -1,0 +1,28 @@
+indexes:
+- kind: HistoryEvent
+  properties:
+  - name: available
+  - name: country
+  - name: created
+    direction: desc
+
+- kind: HistoryPerson
+  properties:
+  - name: available
+  - name: country
+  - name: created
+    direction: desc
+
+- kind: User
+  properties:
+  - name: with_name
+  - name: test_done_amount
+    direction: desc
+  - name: attempts_amount
+
+
+- kind: TestDoneAction
+  properties:
+  - name: user
+  - name: created
+    direction: desc

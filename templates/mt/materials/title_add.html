@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {% if parent_mark_id %}
+            <input type="text" name="parent_mark_id" value="{{ parent_mark_id }}" hidden>
+            <input type="text" name="parent_category" value="{{ category }}" hidden>
+        {% endif %}
+
+        {% if person_id %}
+            <input type="text" name="person_id" value="{{ person_id }}" hidden>
+        {% endif %}
+
+        {% if index != None %}
+            <input type="text" name="index" value="{{ index }}" hidden>
+        {% endif %}
+
+        <label>
+            Название:
+            <input type="text" name="name" {% if title %} value="{{ title.name}}" {% endif %}>
+        </label><br>
+
+        <label>
+            Начало:
+            <input type="date" name="start" {% if title %} value="{{ title.start_str }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Конец:
+            <input type="date" name="end" {% if title %} value="{{ title.end_str }}" {% endif %}>
+        </label><br>
+
+        <input type="submit">
+        <a href="{{ back_link }}">Назад</a>
+    </form>
+</body>
+</html>

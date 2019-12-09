@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {% if parent_mark_id %}
+            <input type="text" name="parent_mark_id" value="{{ parent_mark_id }}" hidden>
+            <input type="text" name="parent_category" value="{{ parent_category }}" hidden>
+        {% endif %}
+
+        {% if video %}
+            <input type="text" name="video_id" value="{{ video.key.id() }}" hidden>
+        {% endif %}
+
+        <label>
+            ID:
+            <input type="text" name="youtube_id" {% if video %} value="{{ video.youtube_id }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Полное название:
+            <input type="text" name="title" {% if video %} value="{{ video.title }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Короткое название:
+            <input type="text" name="shortcut" {% if video %} value="{{ video.shortcut }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Индекс:
+            <input type="text" name="sort_index" {% if video %} value="{{ video.sort_index }}" {% endif %}>
+        </label><br>
+
+        <input type="submit">
+        <a href="{{ back_link }}">Назад</a>
+    </form>
+</body>
+</html>

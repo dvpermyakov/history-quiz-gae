@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <table style="border-collapse:collapse; width:100%" border="1">
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+            </tr>
+            {% for country in countries %}
+                <tr>
+                    <td>{{ country.key.id() }}</td>
+                    <td>
+                        <a href="{{ country.link }}">{{ country.name }} </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ add_link }}">Добавить</a>
+    </div>
+</body>
+</html>

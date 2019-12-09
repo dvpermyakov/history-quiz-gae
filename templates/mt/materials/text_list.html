@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <table style="border-collapse:collapse; width:100%" border="1">
+            <tr>
+                <th>Картинка</th>
+                <th>Описание картинки</th>
+                <th>Заголовок</th>
+                <th>Текст</th>
+            </tr>
+            {% for paragraph in paragraphs %}
+                <tr>
+                    <td>
+                         <img src="{{ paragraph.image }}" height="150">
+                    </td>
+                    <td>{{ paragraph.image_description }}</td>
+                    <td>
+                        <a href="{{ paragraph.change_url }}">{{ paragraph.header }}</a>
+                    </td>
+                    <td>{{ paragraph.text }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ back_link }}">Назад</a>
+        <a href="{{ add_link }}">Добавить</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {% if text %}
+            <input type="text" name="text_id" value="{{ text.key.id() }}" hidden>
+        {% endif %}
+
+        {% if index %}
+            <input type="text" name="index" value="{{ index }}" hidden>
+        {% endif %}
+
+        <label>
+            Изображение:
+            <input type="text" name="image" {% if paragraph %} value="{{ paragraph.image if paragraph.image else "" }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Описание изображения:
+            <input type="text" name="image_description" {% if paragraph %} value="{{ paragraph.image_description }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Заголовок:
+            <input type="text" name="header" {% if paragraph %} value="{{ paragraph.header }}" {% endif %}>
+        </label><br>
+
+        <label>
+            Текст:
+            <input type="text" name="text" {% if paragraph %} value="{{ paragraph.text }}" {% endif %}>
+        </label><br>
+
+
+        <input type="submit">
+        <a href="{{ back_link }}">Назад</a>
+    </form>
+</body>
+</html>

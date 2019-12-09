@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <table style="border-collapse:collapse; width:100%" border="1">
+            <tr>
+                <th>Изображение</th>
+                <th>ID</th>
+                <th>Полное название</th>
+                <th>Короткое название</th>
+                <th>Тест</th>
+            </tr>
+            {% for video in videos %}
+                <tr>
+                    <td>
+                        <img src="{{ video.icon }}" height="150">
+                    </td>
+                    <td>
+                        <a href="https://www.youtube.com/watch?v={{ video.youtube_id }}">{{ video.youtube_id }}</a>
+                    </td>
+                    <td>{{ video.title }}</td>
+                    <td>{{ video.shortcut }}</td>
+                    <td>
+                        <a href="{{ '/mt/materials/test/list?test_id=%s' % video.test.id() }}">
+                            Тест
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ back_link }}">Назад</a>
+        <a href="{{ add_link }}">Добавить</a>
+    </div>
+</body>
+</html>

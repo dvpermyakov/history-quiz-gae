@@ -1,0 +1,10 @@
+cron:
+- description: update youtube statistics
+  url: /cron/video/update
+  schedule: every day 5:00
+  timezone: Europe/Moscow
+
+- description: spam vk users
+  url: /cron/social/spam
+  schedule: every 3 hours from 10:00 to 19:00
+  timezone: Europe/Moscow

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        <label>
+            Зависимость:
+            <select size="1" name="dependency">
+                {% for option in options %}
+                    <option value="{{ option.id }}">{{ option.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <input type="submit">
+    </form>
+    <a href="{{ back_link }}">Назад</a>
+</body>
+</html>

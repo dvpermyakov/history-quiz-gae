@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <table style="border-collapse:collapse; width:100%" border="1">
+            <tr>
+                <th>Макс. кол-во вопросов</th>
+                <th>Макс. кол-во ошибок</th>
+                <th>Макс. кол-во секунд</th>
+            </tr>
+            <tr>
+                <td>{{ test.max_questions }}</td>
+                <td>{{ test.max_mistakes }}</td>
+                <td>{{ test.max_seconds }}</td>
+            </tr>
+        </table>
+        <a href="{{ change_link }}">Изменить</a>
+    </div>
+
+    <div>
+        {% for question in test.questions %}
+            <br><br>
+            <b>{{ question.text }}</b>
+            <table style="border-collapse:collapse; width:100%" border="1">
+                <tr>
+                    <th>Ответы</th>
+                </tr>
+                <tr>
+                    <td><i>{{ question.correct_obj.text }}</i></td>
+                </tr>
+
+                {% for answer in question.incorrect_obj %}
+                    <tr>
+                        <td>{{ answer.text }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <a href="{{ question.change_link }}">Изменить</a>
+        {% endfor %}
+    </div>
+    <br>
+
+    <a href="{{ add_link }}">Добавить вопрос</a>
+    <a href="{{ back_link }}">Назад</a>
+</body>
+</html>

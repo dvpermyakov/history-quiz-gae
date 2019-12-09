@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        <input type="text" name="mark_id" value="{{ mark_id }}" hidden>
+        <input type="text" name="category" value="{{ category }}" hidden>
+        <input type="text" name="question_id" value="{{ question.key.id() }}" hidden>
+
+        <label>
+            Текст:
+            <input type="text" name="text" >
+        </label><br>
+
+        <input type="submit">
+        <a href="{{ back_link }}">Назад</a>
+    </form>
+</body>
+</html>

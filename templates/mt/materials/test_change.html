@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        <input type="text" name="test_id" value="{{ test.key.id() }}" hidden>
+
+        <label>
+            Макс. кол-во вопросов:
+            <input type="text" name="max_questions" value="{{ test.max_questions }}" >
+        </label><br>
+
+        <label>
+            Макс. кол-во ошибок:
+            <input type="text" name="max_mistakes" value="{{ test.max_mistakes }}" >
+        </label><br>
+
+        <label>
+            Макс. кол-во секунд:
+            <input type="text" name="max_seconds" value="{{ test.max_seconds }}" >
+        </label><br>
+
+
+        <input type="submit">
+        <a href="{{ back_link }}">Назад</a>
+    </form>
+</body>
+</html>
